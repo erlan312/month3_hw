@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c25a3a7-14fe-4afb-ac14-fe147a751dd7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/commands.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/echo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/game.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/quiz.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/quiz.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/quiz.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +102,7 @@
       <workItem from="1736339562767" duration="1524000" />
       <workItem from="1736428215955" duration="2625000" />
       <workItem from="1736579624732" duration="2538000" />
-      <workItem from="1736590599748" duration="7479000" />
+      <workItem from="1736590599748" duration="11543000" />
     </task>
     <servers />
   </component>

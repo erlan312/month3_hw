@@ -44,7 +44,7 @@ async def quiz_2(call: types.CallbackQuery):
 
 async def quiz_3(call: types.CallbackQuery):
 
-    photo_path = ("media","img_1.png")
+    photo_path = "media/img_1.png"
 
     await bot.send_photo(chat_id=call.message.chat.id, photo=open(photo_path, "rb"))
 
