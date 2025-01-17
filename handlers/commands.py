@@ -9,7 +9,7 @@ async def start_handler(message: types.Message):
     await message.answer('Привет!')
 # @dp.message_handler(commands=['mem'])
 async def mem_handler(message: types.Message):
-    photo_path = os.path.join('media', 'img.png')
+    photo_path = os.path.join('media', 'images.jpeg')
     photo = open(photo_path, 'rb')
     await bot.send_photo(chat_id=message.from_user.id,
                              photo=photo,
