@@ -3,13 +3,15 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemo
 from config import bot
 from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters.state import State, StatesGroup
-
+from db import main_db
 
 class Store(StatesGroup):
     name = State()
     size = State()
     category = State()
     price = State()
+    info = State()
+    productid = State()
     photo = State()
 
 
@@ -50,8 +52,21 @@ async def process_category(message: types.Message, state: FSMContext):
 async def process_price(message: types.Message, state: FSMContext):
     async with state.proxy() as data:
         data['price'] = message.text
-    await message.answer('Отправьте фотографию продукта:')
+    await message.answer('Отправьте информацию продукта:')
     await Store.next()
+
+async def process_info(m: types.Message, state: FSMContext):
+    async with state.proxy() as data:
+        data['info'] = m.text
+    await m.answer('what is the product id?')
+    await Store.next()
+
+async def process_productid(m: types.Message, state: FSMContext):
+    async with state.proxy() as data:
+        data['productid'] = m.text
+    await m.answer('what is the foto of product')
+    await Store.next()
+
 
 
 async def process_photo(message: types.Message, state: FSMContext):
@@ -71,6 +86,10 @@ async def process_photo(message: types.Message, state: FSMContext):
                 f"Цена: {data['price']}"
             )
         )
+        await main_db.sql_insert_store(name=data['title'],size=data['size'],price=data['price'],photo=photo)
+        await main_db.sql_insert_detail(infoproduct=data['info'],productid=data['productid'])
+
+
     await state.finish()
 
 
@@ -80,4 +99,6 @@ def register_store(dp: Dispatcher):
     dp.register_message_handler(process_size, state=Store.size)
     dp.register_message_handler(process_category, state=Store.category)
     dp.register_message_handler(process_price, state=Store.price)
+    dp.register_message_handler(process_info, state=Store.info)
+    dp.register_message_handler(process_productid, state=Store.productid)
     dp.register_message_handler(process_photo, state=Store.photo, content_types=['photo'])

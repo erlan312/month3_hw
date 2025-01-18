@@ -13,14 +13,14 @@ async def on_startup(_):
     await main_db.create_db()
 
 
+
 commands.register_handlers(dp)
 quiz.register_handlers(dp)
 game.register_game(dp)
 # echo.register_handlers(dp)
-store.register_store(dp)
 webapp.register_handlers(dp)
 FSM_registration.register_handlers_fsm_reg(dp)
-
+store.register_store(dp)
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)

@@ -52,6 +52,7 @@ async def load_city(message: types.Message, state: FSMContext):
     await message.answer('Отправьте свою фотографию')
 
 
+
 async def load_photo(message: types.Message, state: FSMContext):
     async with state.proxy() as data:
         data['photo'] = message.photo[-1].file_id
